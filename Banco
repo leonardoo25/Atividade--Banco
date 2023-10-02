@@ -1,0 +1,27 @@
+class ContaBanco:
+    def __init__(self):
+        self.saldo = 0
+
+    def sacar(self, valor):
+        if valor > 0 and valor <= self.saldo:
+            self.saldo -= valor
+            return f"Saque de R${valor} realizado. Novo saldo: R${self.saldo}"
+        else:
+            return "Ocorreu um erro. Saque não pode ser realizado."
+
+    def depositar(self, valor):
+        if valor > 0:
+            self.saldo += valor
+            return f"Depósito de R${valor} realizado. Novo saldo: R${self.saldo}"
+        else:
+            return "Depósito inválido."
+
+    def get_saldo(self):
+        return f"Saldo atual: R${self.saldo}"
+
+conta = ContaBanco()
+
+print(conta.depositar(500))
+print(conta.sacar(200))
+print(conta.sacar(600))
+print(conta.get_saldo())
